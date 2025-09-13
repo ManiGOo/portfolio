@@ -1,12 +1,29 @@
-# React + Vite
+# ManyGOo Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website built with **React**, **Vite**, and **Tailwind CSS**.  
+It showcases my projects, skills, and ways to get in touch with me.
 
-Currently, two official plugins are available:
+## About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hi! I'm **Many**, a passionate **Full Stack Developer**.  
+I specialize in building **modern, responsive web applications** using **React**, **Node.js**, and **Tailwind CSS**.  
+I enjoy creating clean, functional, and visually appealing web experiences.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Responsive Design:** Works beautifully on mobile, tablet, and desktop.
+- **Project Showcase:** Highlights my personal and professional projects.
+- **Skills Section:** Lists my frontend, backend, and tool expertise.
+- **Contact Form:** Lets visitors reach me directly.
+- **Smooth Animations:** Built with **Framer Motion** for subtle, engaging effects.
+- **Modern UI:** Clean, minimalistic, and interactive design.
+
+## Tech Stack
+
+- **Frontend:** React, Tailwind CSS, Framer Motion
+- **Backend (for projects):** Node.js, Express, MongoDB
+- **Bundler / Dev Tools:** Vite
+- **Icons & UI:** Lucide-React, Material UI (optional)
+
+## Project Structure
+
