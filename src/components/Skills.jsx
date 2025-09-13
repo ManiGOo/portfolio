@@ -5,7 +5,7 @@ const Skills = () => {
   const [skills, setSkills] = useState({ frontend: [], backend: [], tools: [] });
 
   useEffect(() => {
-    fetch("src/assets/data/skills.json") // should be in public folder
+    fetch("/data/skills.json") // should be in public folder
       .then((res) => res.json())
       .then((data) => setSkills(data))
       .catch((err) => console.error("Error loading skills:", err));
