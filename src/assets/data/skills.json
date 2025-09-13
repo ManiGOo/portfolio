@@ -1,0 +1,22 @@
+{
+  "frontend": [
+    { "name": "React", "desc": "JavaScript library for building UIs" },
+    { "name": "Next.js", "desc": "React framework for SSR and SSG" },
+    { "name": "TailwindCSS", "desc": "Utility-first CSS framework" },
+    { "name": "Redux", "desc": "State management library" },
+    { "name": "JavaScript", "desc": "Programming language of the web" }
+  ],
+  "backend": [
+    { "name": "Node.js", "desc": "JavaScript runtime environment" },
+    { "name": "Express", "desc": "Minimal Node.js web framework" },
+    { "name": "PostgreSQL", "desc": "Relational database" },
+    { "name": "MongoDB", "desc": "NoSQL document database" }
+  ],
+  "tools": [
+    { "name": "Git", "desc": "Version control system" },
+    { "name": "Docker", "desc": "Containerization platform" },
+    { "name": "Postman", "desc": "API testing tool" },
+    { "name": "Jest", "desc": "JavaScript testing framework" },
+    { "name": "Netlify", "desc": "Frontend deployment platform" }
+  ]
+}

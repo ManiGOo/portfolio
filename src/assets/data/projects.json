@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Inventofy",
+    "description": "Full-stack inventory management app with React & Node.js",
+    "tech": ["React", "Node.js", "PostgreSQL", "Neon", "Render"],
+    "github": "https://github.com/ManiGOo/InventoryManagementAPP.git",
+    "demo": "https://inventofybymani.netlify.app/"
+  },
+  {
+    "name": "Feed App",
+    "description": "Micro-blogging App with Real-time chat using WebSockets and Express",
+    "tech": ["React", "Express", "Socket.io", "PostgreSQL", "Render", "Netlify"],
+    "github": "https://github.com/ManiGOo/feedAPP.git",
+    "demo": "https://feedappbymani.netlify.app"
+  },
+  {
+    "name": "Coming Soon",
+    "description": "This project will be added soon.",
+    "tech": [],
+    "github": "#",
+    "demo": "#"
+  }
+]
