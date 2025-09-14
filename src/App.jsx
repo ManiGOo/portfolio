@@ -10,16 +10,24 @@ import Contact from "./components/Contact";
 // Floating 3D shapes component
 const FloatingShape = ({ size, color, top, left, delay }) => (
   <motion.div
-    initial={{ y: 0, x: 0 }}
-    animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+    initial={{ y: 0 }}
+    animate={{ y: [0, 30, 0] }} // only vertical
     transition={{
       repeat: Infinity,
-      duration: 8,
+      duration: 12, // slower = smoother
       delay,
       ease: "easeInOut",
     }}
     className={`absolute rounded-full ${color}`}
-    style={{ width: size, height: size, top, left, filter: "blur(100px)", zIndex: 0 }}
+    style={{
+      width: size,
+      height: size,
+      top,
+      left,
+      filter: "blur(50px)", // reduced blur
+      willChange: "transform", // GPU hint
+      zIndex: 0,
+    }}
   />
 );
 
