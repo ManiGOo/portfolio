@@ -18,11 +18,6 @@ I enjoy creating clean, functional, and visually appealing web experiences.
 - **Smooth Animations:** Built with **Framer Motion** for subtle, engaging effects.
 - **Modern UI:** Clean, minimalistic, and interactive design.
 
-## Tech Stack
-
-- **Frontend:** React, Tailwind CSS, Framer Motion
-- **Backend (for projects):** Node.js, Express, MongoDB
-- **Bundler / Dev Tools:** Vite
-- **Icons & UI:** Lucide-React, Material UI (optional)
+### Thank you for checking out 
 
 
