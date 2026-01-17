@@ -87,7 +87,7 @@ const Contact = () => {
           transition={{ delay: 0.5 }}
           className="mt-20 text-gray-600 text-sm font-medium tracking-widest uppercase"
         >
-          Designed & Built by Manish • 2025
+          Designed & Built by Manish • 2026
         </motion.p>
       </div>
     </section>
