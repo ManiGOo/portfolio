@@ -25,5 +25,4 @@ I enjoy creating clean, functional, and visually appealing web experiences.
 - **Bundler / Dev Tools:** Vite
 - **Icons & UI:** Lucide-React, Material UI (optional)
 
-## Project Structure
 
