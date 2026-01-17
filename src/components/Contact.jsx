@@ -1,88 +1,95 @@
 import React from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const contactLinks = [
+    { 
+      Icon: Mail, 
+      label: "Email", 
+      val: "its.nathmanish@gmail.com", 
+      href: "mailto:its.nathmanish@gmail.com",
+      color: "hover:text-teal-400"
+    },
+    { 
+      Icon: Linkedin, 
+      label: "LinkedIn", 
+      val: "manishforyou", 
+      href: "https://www.linkedin.com",
+      color: "hover:text-blue-400"
+    },
+    { 
+      Icon: Github, 
+      label: "GitHub", 
+      val: "ManiGOo", 
+      href: "https://github.com",
+      color: "hover:text-purple-400"
+    }
+  ];
+
   return (
-    <section id="contact" className="relative py-28 px-6 text-white overflow-hidden">
-      {/* Decorative blobs */}
-      <motion.div
-        className="absolute w-72 h-72 bg-teal-400/20 rounded-full blur-3xl top-20 left-10"
-        animate={{ y: [0, 30, 0] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl bottom-0 right-10"
-        animate={{ y: [0, -40, 0] }}
-        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-      />
+    <section id="contact" className="relative py-32 px-6 bg-[#050505] text-white overflow-hidden">
+      {/* Background Ambient Glows */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-teal-500/5 blur-[120px]" />
+      </div>
 
-      {/* Heading */}
-      <h2 className="text-4xl font-bold mb-4 text-center relative z-10">Connect with me</h2>
-      <p className="text-gray-400 text-center mb-12 relative z-10">
-        Let’s build something amazing together 🚀
-      </p>
+      <div className="max-w-4xl mx-auto relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+            GET IN TOUCH.
+          </h2>
+          <p className="text-xl text-gray-400 mb-16 max-w-2xl mx-auto leading-relaxed">
+            I’m always looking for new opportunities and interesting projects. 
+            Feel free to reach out through any of these platforms.
+          </p>
+        </motion.div>
 
-      {/* Content wrapper */}
-      <motion.div
-        className="relative z-10 max-w-xl mx-auto flex flex-col gap-8 
-                   p-8 rounded-3xl bg-gray-800/50 border border-gray-700 
-                   shadow-xl backdrop-blur-lg"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Contact Form */}
-        <form className="flex flex-col gap-5">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="p-4 rounded-2xl bg-gray-900/60 border border-gray-700 
-                       focus:outline-none focus:ring-2 focus:ring-teal-400 transition"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="p-4 rounded-2xl bg-gray-900/60 border border-gray-700 
-                       focus:outline-none focus:ring-2 focus:ring-teal-400 transition"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="6"
-            className="p-4 rounded-2xl bg-gray-900/60 border border-gray-700 
-                       focus:outline-none focus:ring-2 focus:ring-teal-400 transition resize-none"
-          />
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(45, 212, 191, 0.6)" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-teal-400 text-gray-900 px-8 py-4 rounded-2xl font-semibold 
-                       hover:bg-teal-500 shadow-lg transition"
-          >
-            Send Message
-          </motion.button>
-        </form>
-
-        {/* Social Links */}
-        <div className="flex justify-center gap-8 mt-8">
-          {[ 
-            { Icon: Github, href: "https://github.com/ManiGOo/ManiGOo" },
-            { Icon: Linkedin, href: "https://www.linkedin.com/in/manishforyou/?trk=profile-badge&originalSubdomain=in" },
-            { Icon: Mail, href: "mailto:its.nathmanish#gmail.com" },
-          ].map(({ Icon, href }, idx) => (
+        <div className="grid md:grid-cols-3 gap-6">
+          {contactLinks.map((item, i) => (
             <motion.a
-              key={idx}
-              href={href}
+              key={i}
+              href={item.href}
               target="_blank"
-              whileHover={{ y: -5, scale: 1.2, color: "#2dd4bf" }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="transition"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="relative group p-8 rounded-[2rem] bg-white/5 border border-white/10 overflow-hidden transition-all hover:border-white/20"
             >
-              <Icon size={36} />
+              <div className="absolute top-4 right-4 text-white/20 group-hover:text-white group-hover:rotate-45 transition-all">
+                <ArrowUpRight size={20} />
+              </div>
+              
+              <div className={`mb-6 flex justify-center transition-colors ${item.color}`}>
+                <item.Icon size={40} strokeWidth={1.5} />
+              </div>
+              
+              <p className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">
+                {item.label}
+              </p>
+              <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                {item.val}
+              </p>
             </motion.a>
           ))}
         </div>
-      </motion.div>
+
+        {/* Footer Note */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 text-gray-600 text-sm font-medium tracking-widest uppercase"
+        >
+          Designed & Built by Manish • 2025
+        </motion.p>
+      </div>
     </section>
   );
 };
