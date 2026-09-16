@@ -2,28 +2,28 @@
   {
     "name": "SkyGate",
     "description": "A full stack flight tracker webapp that uses the opensky foundation for data",
-    "tech": ["Python", "Django", "React", "Tailwind CSS", "webapi", "PostgreSQL"],
+    "tech": ["Python", "Django", "React", "Tailwind CSS", "webapi", "PostgreSQL", "Tailwind CSS"],
     "github": "https://github.com/ManiGOo/flightTracker.git",
     "demo": "https://skygate.netlify.app/"
   },
   {
     "name": "DataDeal",
     "description": "A AI-Automated cold email outreach platform with built-in CRM support for your sales team.",
-    "tech": ["WebScraping", "TavilyAPI", "Playwright", "GROK", "Temporal", "FastAPI", "Python", "React", "Javascript"],
+    "tech": ["WebScraping", "TavilyAPI", "Playwright", "GROK", "Temporal", "FastAPI", "Python", "React", "Javascript", "Tailwind CSS"],
     "github": "https://github.com/ManiGOo/LEVEL_2_sales_engine"
   },
   {
     "name": "Feed App",
     "description": "Micro-blogging App with Real-time chat using WebSockets and Express",
-    "tech": ["React", "Express", "Socket.io", "PostgreSQL", "Render", "Netlify"],
+    "tech": ["React", "Express", "Socket.io", "PostgreSQL", "Tailwind CSS", "Render", "Netlify"],
     "github": "https://github.com/ManiGOo/feedAPP",
     "demo": "https://feedappbymani.netlify.app"
   },
   {
     "name": "Inventofy",
     "description": "Full-stack inventory management app with React & Node.js",
-    "tech": ["React", "Node.js", "PostgreSQL", "Neon", "Render"],
+    "tech": ["React", "Node.js", "PostgreSQL", "Tailwind CSS", "Neon", "Render"],
     "github": "https://github.com/ManiGOo/InventoryManagementAPP",
     "demo": "https://inventofybymani.netlify.app/"
-  },
+  }
 ]
