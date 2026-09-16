@@ -4,8 +4,8 @@ import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 const ease = [0.16, 1, 0.3, 1];
 
 const channels = [
-  { Icon: Mail, label: "Email", value: "its.nathmanish@gmail.com", href: "mailto:its.nathmanish@gmail.com" },
-  { Icon: Linkedin, label: "LinkedIn", value: "manishforyou", href: "https://www.linkedin.com" },
+  { Icon: Mail, label: "Email", value: "me.nathmanish@gmail.com", href: "mailto:me.nathmanish@gmail.com" },
+  { Icon: Linkedin, label: "LinkedIn", value: "manishforyou", href: "https://www.linkedin.com/in/manigoo/" },
   { Icon: Github, label: "GitHub", value: "ManiGOo", href: "https://github.com/ManiGOo" },
 ];
 
