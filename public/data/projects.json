@@ -1,10 +1,16 @@
 [
   {
-    "name": "Inventofy",
-    "description": "Full-stack inventory management app with React & Node.js",
-    "tech": ["React", "Node.js", "PostgreSQL", "Neon", "Render"],
-    "github": "https://github.com/ManiGOo/InventoryManagementAPP",
-    "demo": "https://inventofybymani.netlify.app/"
+    "name": "SkyGate",
+    "description": "A full stack flight tracker webapp that uses the opensky foundation for data",
+    "tech": ["Python", "Django", "React", "Tailwind CSS", "webapi", "PostgreSQL"],
+    "github": "https://github.com/ManiGOo/flightTracker.git",
+    "demo": "https://skygate.netlify.app/"
+  },
+  {
+    "name": "DataDeal",
+    "description": "A AI-Automated cold email outreach platform with built-in CRM support for your sales team.",
+    "tech": ["WebScraping", "TavilyAPI", "Playwright", "GROK", "Temporal", "FastAPI", "Python", "React", "Javascript"],
+    "github": "https://github.com/ManiGOo/LEVEL_2_sales_engine"
   },
   {
     "name": "Feed App",
@@ -14,17 +20,10 @@
     "demo": "https://feedappbymani.netlify.app"
   },
   {
-    "name": "FootballHub",
-    "description": "A full stack django website that lets create events and fetchs latest soccer games live from football-data.org",
-    "tech": ["Python", "Django", "Webapi", "MVT"],
-    "github": "https://github.com/ManiGOo/FootballHub",
-    "demo": "#"
+    "name": "Inventofy",
+    "description": "Full-stack inventory management app with React & Node.js",
+    "tech": ["React", "Node.js", "PostgreSQL", "Neon", "Render"],
+    "github": "https://github.com/ManiGOo/InventoryManagementAPP",
+    "demo": "https://inventofybymani.netlify.app/"
   },
-  {
-    "name": "Sky Watcher",
-    "description": "A full stack flight tracker webapp that uses the opensky foundation for data",
-    "tech": ["Python", "Django", "React", "Tailwind CSS", "webapi", "PostgreSQL"],
-    "github": "#",
-    "demo": "#"
-  }
 ]
