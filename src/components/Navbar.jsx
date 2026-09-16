@@ -44,7 +44,6 @@ export default function Navbar() {
             />
           </div>
 
-          <a href="#top" className="flex items-center gap-3 group" aria-label="Manish — back to top">
           <a href="#top" className="flex items-center shrink-0" aria-label="Many Software Developer — back to top">
             <img
               src="/logo.png"
