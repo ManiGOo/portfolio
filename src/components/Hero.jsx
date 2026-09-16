@@ -140,8 +140,8 @@ export default function Hero() {
             <div className="flex gap-2">
               {[
                 { Icon: Github, href: "https://github.com/ManiGOo", label: "GitHub" },
-                { Icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
-                { Icon: Mail, href: "mailto:its.nathmanish@gmail.com", label: "Email" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/manigoo/", label: "LinkedIn" },
+                { Icon: Mail, href: "mailto:me.nathmanish@gmail.com", label: "Email" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
