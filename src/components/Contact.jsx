@@ -17,16 +17,16 @@ export default function Contact() {
         <div className="content-container flex flex-col gap-8 py-16 md:py-20 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-black/60">
-              04 — Final chapter · Open to work
+              06 — Final chapter · Booking new projects
             </p>
             <h2 className="mt-4 font-display display-tight font-bold text-[clamp(2.8rem,7vw,5.5rem)]">
-              Let&apos;s build<br />something real.
+              Have a project<br />in mind?
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-[15px] font-medium leading-relaxed text-black/70">
-              New roles, project builds, or a hard problem worth solving —
-              my inbox is the fastest route. I reply within a day.
+              Tell me what you&apos;re building — you&apos;ll get a fixed-scope quote
+              and next steps within 24 hours. No pressure, no sales calls.
             </p>
             <a
               href="mailto:its.nathmanish@gmail.com"
@@ -70,8 +70,9 @@ export default function Contact() {
             <nav aria-label="Footer">
               <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500 dark:text-zinc-500">
                 <li><a href="#about" className="transition-colors hover:text-zinc-900 dark:hover:text-white">About</a></li>
+                <li><a href="#services" className="transition-colors hover:text-zinc-900 dark:hover:text-white">Services</a></li>
                 <li><a href="#work" className="transition-colors hover:text-zinc-900 dark:hover:text-white">Work</a></li>
-                <li><a href="#stack" className="transition-colors hover:text-zinc-900 dark:hover:text-white">Stack</a></li>
+                <li><a href="#process" className="transition-colors hover:text-zinc-900 dark:hover:text-white">Process</a></li>
                 <li><a href="#contact" className="transition-colors hover:text-zinc-900 dark:hover:text-white">Contact</a></li>
               </ul>
             </nav>

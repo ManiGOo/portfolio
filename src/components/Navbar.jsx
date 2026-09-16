@@ -4,9 +4,10 @@ import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { n: "01", name: "About", href: "#about" },
-  { n: "02", name: "Work", href: "#work" },
-  { n: "03", name: "Stack", href: "#stack" },
-  { n: "04", name: "Contact", href: "#contact" },
+  { n: "02", name: "Services", href: "#services" },
+  { n: "03", name: "Work", href: "#work" },
+  { n: "04", name: "Process", href: "#process" },
+  { n: "05", name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -52,7 +53,7 @@ export default function Navbar() {
               <span className="block font-display text-[15px] font-bold tracking-tight text-zinc-900 dark:text-white">
                 Manish<span className="text-emerald-600 dark:text-emerald-400">.dev</span>
               </span>
-              <span className="mono-label mt-1 block !text-[9px] text-zinc-500 dark:text-zinc-500">BCA — PY FULL STACK</span>
+              <span className="mono-label mt-1 block !text-[9px] text-zinc-500 dark:text-zinc-500">FREELANCE — FULL STACK</span>
             </span>
           </a>
 
@@ -62,7 +63,7 @@ export default function Navbar() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="group flex items-baseline gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-900/5 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
+                    className="group flex items-baseline gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-900/5 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white"
                   >
                     <span className="font-mono text-[10px] text-emerald-600/70 dark:text-emerald-500/70">{l.n}</span>
                     {l.name}
@@ -79,7 +80,7 @@ export default function Navbar() {
               className="gradient-border inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold tracking-widest uppercase text-zinc-900 transition-transform duration-200 hover:-translate-y-0.5 dark:text-white"
             >
               <span className="size-1.5 rounded-full bg-emerald-600 animate-pulse dark:bg-emerald-400" aria-hidden="true" />
-              Hire me
+              Start a project
             </a>
           </div>
 
@@ -120,10 +121,10 @@ export default function Navbar() {
                   <a
                     href={l.href}
                     onClick={() => setIsOpen(false)}
-                    className="gradient-border-quiet flex items-center justify-between rounded-2xl bg-white px-6 py-5 dark:bg-white/[0.03]"
+                    className="gradient-border-quiet flex items-center justify-between rounded-2xl bg-white px-6 py-4 dark:bg-white/[0.03]"
                   >
                     <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400">{l.n}</span>
-                    <span className="font-display text-3xl font-bold text-zinc-900 dark:text-white">{l.name}</span>
+                    <span className="font-display text-2xl font-bold text-zinc-900 dark:text-white">{l.name}</span>
                     <span aria-hidden="true" className="text-zinc-400 dark:text-zinc-600">→</span>
                   </a>
                 </motion.li>

@@ -8,9 +8,9 @@ const HeroObject3D = lazy(() => import("./HeroObject3D"));
 const ease = [0.16, 1, 0.3, 1];
 
 const stats = [
-  { k: "04+", v: "Full-stack projects shipped" },
-  { k: "10+", v: "Tools across Python + JS" },
-  { k: "7 mo", v: "Hands-on dev experience" },
+  { k: "1+ yrs", v: "Client project experience" },
+  { k: "04+", v: "Projects delivered" },
+  { k: "24h", v: "Response time" },
 ];
 
 export default function Hero() {
@@ -29,14 +29,14 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-600 opacity-60 dark:bg-emerald-400 dark:opacity-70" />
               <span className="relative inline-flex size-2 rounded-full bg-emerald-600 dark:bg-emerald-400" />
             </span>
-            <span className="mono-label !text-[10px] text-emerald-800 dark:text-emerald-300">Open to work — 2026</span>
+            <span className="mono-label !text-[10px] text-emerald-800 dark:text-emerald-300">Booking new projects — 2026</span>
           </motion.div>
 
-          <p className="mono-label mb-5 text-zinc-500 dark:text-zinc-500">Portfolio — Manish Nath · Full-Stack Developer</p>
+          <p className="mono-label mb-5 text-zinc-500 dark:text-zinc-500">Freelance — Manish Nath · Full-Stack Developer</p>
 
           <WordReveal
             as="h1"
-            text="Building calm, fast software with Python at the core."
+            text="Web software that pays for itself."
             className="font-display display-tight text-balance font-bold text-[clamp(2.6rem,6.2vw,4.9rem)] text-zinc-900 dark:text-white"
           />
 
@@ -46,9 +46,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.35, ease }}
             className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
           >
-            I&apos;m <span className="font-semibold text-zinc-900 dark:text-white">Manish</span> — a full-stack developer
-            working across <span className="text-zinc-800 dark:text-zinc-200">Django, FastAPI, React and Node.js</span>.
-            I care about clean architecture, readable code, and interfaces that feel engineered, not decorated.
+            I&apos;m <span className="font-semibold text-zinc-900 dark:text-white">Manish</span> — a freelance developer with{" "}
+            <span className="font-semibold text-zinc-900 dark:text-white">1+ years</span> building backends in{" "}
+            <span className="text-zinc-800 dark:text-zinc-200">Django, FastAPI and Node.js</span> with React frontends.
+            Fixed quotes, weekly demos, and handovers your team can maintain.
           </motion.p>
 
           <motion.div
@@ -58,18 +59,18 @@ export default function Hero() {
             className="mt-9 flex flex-col sm:flex-row gap-3"
           >
             <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-7 py-4 text-sm font-bold tracking-wide text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-500 dark:bg-emerald-400 dark:text-black dark:hover:bg-emerald-300"
+            >
+              Start your project
+              <ArrowUpRight size={16} />
+            </a>
+            <a
               href="#work"
               className="gradient-border group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-sm font-bold tracking-wide text-zinc-900 transition-transform duration-200 hover:-translate-y-0.5 dark:text-white"
             >
-              View selected work
+              See delivered work
               <ArrowDown size={16} className="text-emerald-700 transition-transform group-hover:translate-y-0.5 dark:text-emerald-400" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-900/10 bg-white/70 px-7 py-4 text-sm font-bold tracking-wide text-zinc-800 backdrop-blur transition-colors hover:border-emerald-600/40 hover:text-zinc-900 dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-200 dark:hover:border-emerald-400/40 dark:hover:text-white"
-            >
-              Get in touch
-              <ArrowUpRight size={16} className="text-zinc-400 dark:text-zinc-500" />
             </a>
           </motion.div>
 
@@ -91,7 +92,7 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* 3D + terminal panel column */}
+        {/* 3D + delivery panel column */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +102,7 @@ export default function Hero() {
           <div className="gradient-border relative overflow-hidden rounded-[1.75rem] shadow-[0_24px_60px_-24px_rgba(24,27,25,0.25)] dark:shadow-none">
             <div className="flex items-center justify-between border-b border-zinc-900/10 px-5 py-3.5 dark:border-white/8">
               <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500">
-                <Terminal size={14} className="text-emerald-700 dark:text-emerald-400" /> hero.object — live
+                <Terminal size={14} className="text-emerald-700 dark:text-emerald-400" /> delivery.stack — live
               </span>
               <span className="flex gap-1.5" aria-hidden="true">
                 <i className="size-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
@@ -114,7 +115,6 @@ export default function Hero() {
               <Suspense fallback={<div className="aspect-square w-full animate-pulse bg-zinc-900/[0.04] dark:bg-white/[0.02]" />}>
                 <HeroObject3D />
               </Suspense>
-              {/* corner ticks */}
               <span className="corner top-left" aria-hidden="true" />
               <span className="corner top-right" aria-hidden="true" />
             </div>
@@ -136,7 +136,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-4 flex items-center justify-between px-1">
-            <p className="font-mono text-[11px] text-zinc-500 dark:text-zinc-600">FIG.01 — SIGNAL GEOMETRY / POINTER PARALLAX</p>
+            <p className="font-mono text-[11px] text-zinc-500 dark:text-zinc-600">FIG.01 — PROJECT STACK / MAINTAINABLE BY DEFAULT</p>
             <div className="flex gap-2">
               {[
                 { Icon: Github, href: "https://github.com/ManiGOo", label: "GitHub" },

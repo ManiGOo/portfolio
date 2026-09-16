@@ -3,8 +3,10 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import About from "./components/About";
+import Services from "./components/Services";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Process from "./components/Process";
 import Contact from "./components/Contact";
 
 function App() {
@@ -19,8 +21,10 @@ function App() {
         <Hero />
         <Marquee />
         <About />
+        <Services />
         <Projects />
         <Skills />
+        <Process />
         <Contact />
       </main>
     </div>

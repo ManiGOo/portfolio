@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { BookOpen, Code2, GraduationCap } from "lucide-react";
+import { Briefcase, Code2, MessagesSquare } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const ease = [0.16, 1, 0.3, 1];
 
 const traits = [
-  { icon: Code2, label: "Focus", value: "Python + JS Full Stack" },
-  { icon: GraduationCap, label: "Education", value: "BCA Student" },
-  { icon: BookOpen, label: "Experience", value: "7 Months Hands-On" },
+  { icon: Code2, label: "Capability", value: "End-to-End Delivery" },
+  { icon: Briefcase, label: "Experience", value: "1+ Years Client Work" },
+  { icon: MessagesSquare, label: "Working style", value: "Direct, No Layers" },
 ];
 
 const stack = ["Python", "Django", "FastAPI", "DRF", "React", "Node.js", "JavaScript", "PostgreSQL", "Tailwind CSS", "Git", "REST APIs"];
@@ -17,9 +17,9 @@ export default function About() {
     <section id="about" aria-label="About" className="content-container relative scroll-mt-28 py-24 md:py-32">
       <SectionHeading
         index="01"
-        eyebrow="Profile — Point of view"
-        title="Logic first, interfaces that respect it."
-        lede="BCA undergraduate with 7 months of hands-on experience across Python and JavaScript — robust Django and FastAPI backends, Node.js services, and seamless React frontends."
+        eyebrow="Profile — Your builder"
+        title="One developer, full accountability."
+        lede="1+ years delivering client work across Python and JavaScript — Django and FastAPI backends, Node.js services, React frontends. You talk to the person writing the code."
       />
 
       <div className="grid gap-5 lg:grid-cols-12">
@@ -33,17 +33,15 @@ export default function About() {
         >
           <span className="corner top-left" aria-hidden="true" />
           <span className="corner bottom-right" aria-hidden="true" />
-          <p className="mono-label text-zinc-500 dark:text-zinc-600">CH.01 — Bio</p>
+          <p className="mono-label text-zinc-500 dark:text-zinc-600">CH.01 — Why me</p>
           <p className="mt-5 text-lg md:text-xl leading-relaxed text-zinc-700 dark:text-zinc-300">
-            I am a <span className="font-semibold text-zinc-900 dark:text-white">BCA undergraduate</span> building
-            backends with <span className="text-emerald-700 dark:text-emerald-300">Django, FastAPI and Node.js</span> and
-            pairing them with considered React integration. I value clean code architecture — applications that are
-            not just functional, but scalable.
+            I&apos;m <span className="font-semibold text-zinc-900 dark:text-white">Manish</span> — a freelance full-stack
+            developer. For the past year I&apos;ve shipped inventory systems, realtime apps, and data-driven sites
+            with <span className="text-emerald-700 dark:text-emerald-300">clean architecture and documented handovers</span>.
           </p>
           <p className="mt-4 text-base leading-relaxed text-zinc-500 dark:text-zinc-500">
-            With 7 months of practical experience shipping full-stack projects, I&apos;m open to junior roles
-            and collaborative work. Strong fundamentals in data structures, REST design, and readable,
-            review-ready code.
+            No agency layers, no handoffs, no jargon. You describe the outcome, I scope it fixed,
+            demo it weekly, and hand over code your next developer will thank you for.
           </p>
 
           <div className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -74,7 +72,7 @@ export default function About() {
         >
           <div>
             <div className="flex items-center justify-between">
-              <h3 className="font-display text-lg font-bold text-zinc-900 dark:text-white">Operating stack</h3>
+              <h3 className="font-display text-lg font-bold text-zinc-900 dark:text-white">Client-ready stack</h3>
               <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">
                 <i className="size-1.5 animate-pulse rounded-full bg-emerald-600 dark:bg-emerald-400" /> Live
               </span>
@@ -91,13 +89,12 @@ export default function About() {
             </div>
           </div>
           <div className="mt-8 border-t hairline pt-6">
-            <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">Currently</p>
+            <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">Why clients hire me</p>
             <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-500">
-              7 months of hands-on work across Django, FastAPI and Node.js — committed to readable,
-              reviewed, tested code.
+              Fixed quotes, weekly demos, documented handover — and code I&apos;d be happy to inherit myself.
             </p>
-            <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-colors hover:text-emerald-700 dark:text-white dark:hover:text-emerald-300">
-              Start a conversation <span aria-hidden="true">→</span>
+            <a href="#process" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-colors hover:text-emerald-700 dark:text-white dark:hover:text-emerald-300">
+              See how I work <span aria-hidden="true">→</span>
             </a>
           </div>
         </motion.aside>

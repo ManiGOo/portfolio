@@ -29,7 +29,7 @@ export default function Skills() {
   return (
     <section id="stack" aria-label="Technical stack" className="content-container scroll-mt-28 py-24 md:py-32">
       <SectionHeading
-        index="03"
+        index="04"
         eyebrow="Stack & tooling — The arsenal"
         title="Depth where it counts, breadth where it helps."
         lede="Python (Django, FastAPI) and Node.js carry the backend. React carries the interface. Everything else exists to ship, test and deploy with confidence."

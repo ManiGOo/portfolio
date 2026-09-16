@@ -44,10 +44,10 @@ export default function Projects() {
     <section id="work" aria-label="Selected work" className="relative scroll-mt-28 border-t hairline bg-white/40 py-24 md:py-32 dark:bg-black/25">
       <div className="content-container">
         <SectionHeading
-          index="02"
-          eyebrow="Selected work — Proof before promises"
-          title="Four builds, one standard: ship it clean."
-          lede="Each project is a working system — real data, real deploys, real trade-offs. Open any chapter for stack, links and context."
+          index="03"
+          eyebrow="Delivered work — Proof before promises"
+          title="Real systems, live in production."
+          lede="A sample of shipped client-style builds — real data, real deploys, real trade-offs. Your project gets the same standard."
         />
 
         <div className="overflow-hidden rounded-[1.75rem] border border-zinc-900/10 bg-white shadow-[0_24px_60px_-32px_rgba(24,27,25,0.3)] dark:border-white/8 dark:bg-transparent dark:shadow-none">
