@@ -1,13 +1,31 @@
 import { useEffect, useRef } from "react";
 
 /**
- * AtmosphereBackground — atmosphere-background skill
- * Dark near-black base + drifting vertical emerald light folds,
- * screen-blended, luminous lower-right bloom. Canvas 2D, DPR-capped,
- * pauses offscreen / hidden tab / reduced motion.
+ * AtmosphereBackground — atmosphere-background skill (theme-aware)
+ * Light: warm paper base + soft emerald folds, gentle lower-right bloom.
+ * Dark: near-black base + luminous emerald folds, stronger corner bloom.
+ * Canvas 2D, DPR-capped, pauses offscreen / hidden tab / reduced motion.
  */
+const PALETTES = {
+  light: {
+    top: "#f1f3f0", mid: "#edf0eb", bottom: "#e6eae4",
+    foldHue: [158, 172], foldAlpha: [0.07, 0.09, 0.11],
+    bloom: ["rgba(5,150,105,0.10)", "rgba(5,150,105,0.04)", "rgba(5,150,105,0)"],
+    shade: ["rgba(255,255,255,0.55)", "rgba(255,255,255,0)"],
+  },
+  dark: {
+    top: "#060807", mid: "#070a09", bottom: "#080c0b",
+    foldHue: [160, 175], foldAlpha: [0.10, 0.15, 0.20],
+    bloom: ["rgba(16,185,129,0.16)", "rgba(16,185,129,0.06)", "rgba(16,185,129,0)"],
+    shade: ["rgba(0,0,0,0.5)", "rgba(0,0,0,0)"],
+  },
+};
+
 export default function AtmosphereBackground() {
   const ref = useRef(null);
+  const themeRef = useRef(
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark") ? "dark" : "light"
+  );
 
   useEffect(() => {
     const canvas = ref.current;
@@ -26,8 +44,8 @@ export default function AtmosphereBackground() {
       width: 0.10 + (i % 3) * 0.035,
       speed: 0.00012 + (i % 4) * 0.00005,
       phase: i * 1.7,
-      alpha: 0.10 + (i % 3) * 0.05,
-      hue: i % 2 === 0 ? 160 : 175,
+      band: i % 3,
+      huePick: i % 2,
     }));
 
     function resize() {
@@ -42,61 +60,44 @@ export default function AtmosphereBackground() {
     }
 
     function paint(t) {
-      // base
+      const P = PALETTES[themeRef.current] ?? PALETTES.light;
       const base = ctx.createLinearGradient(0, 0, 0, h);
-      base.addColorStop(0, "#060807");
-      base.addColorStop(0.55, "#070a09");
-      base.addColorStop(1, "#080c0b");
+      base.addColorStop(0, P.top);
+      base.addColorStop(0.55, P.mid);
+      base.addColorStop(1, P.bottom);
       ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
       ctx.fillStyle = base;
       ctx.fillRect(0, 0, w, h);
 
-      // folds — screen blend
       ctx.globalCompositeOperation = "screen";
       folds.forEach((f) => {
         const drift = Math.sin(t * f.speed + f.phase) * w * 0.035;
         const cx = f.x * w + drift;
         const fw = f.width * w;
+        const hue = P.foldHue[f.huePick];
+        const alpha = P.foldAlpha[f.band];
         const g = ctx.createLinearGradient(cx - fw, 0, cx + fw, 0);
         g.addColorStop(0, "rgba(16,185,129,0)");
-        g.addColorStop(0.5, `hsla(${f.hue}, 70%, 45%, ${f.alpha})`);
+        g.addColorStop(0.5, `hsla(${hue}, 70%, 45%, ${alpha})`);
         g.addColorStop(1, "rgba(16,185,129,0)");
-        ctx.fillStyle = g;
-        // vertical shape: fade top, intensify bottom
-        ctx.save();
-        ctx.beginPath();
-        ctx.rect(cx - fw, 0, fw * 2, h);
-        ctx.clip();
-        const v = ctx.createLinearGradient(0, 0, 0, h);
-        v.addColorStop(0, "rgba(0,0,0,1)");
-        v.addColorStop(0.45, "rgba(0,0,0,0.35)");
-        v.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.globalCompositeOperation = "destination-in";
-        ctx.fillStyle = v;
-        ctx.fillRect(cx - fw, 0, fw * 2, h);
-        ctx.restore();
-        ctx.globalCompositeOperation = "screen";
-        ctx.fillStyle = g;
-        // repaint with vertical alpha via second pass is complex in 2d;
-        // simple approach: draw gradient rect with globalAlpha shaped by height bands
         ctx.globalAlpha = 0.85;
+        ctx.fillStyle = g;
         ctx.fillRect(cx - fw, h * 0.15, fw * 2, h * 0.85);
         ctx.globalAlpha = 1;
       });
 
-      // focal bloom lower-right
       const bx = w * 0.82, by = h * 0.88;
       const bloom = ctx.createRadialGradient(bx, by, 0, bx, by, Math.max(w, h) * 0.45);
-      bloom.addColorStop(0, "rgba(16,185,129,0.16)");
-      bloom.addColorStop(0.4, "rgba(16,185,129,0.06)");
-      bloom.addColorStop(1, "rgba(16,185,129,0)");
+      bloom.addColorStop(0, P.bloom[0]);
+      bloom.addColorStop(0.4, P.bloom[1]);
+      bloom.addColorStop(1, P.bloom[2]);
       ctx.fillStyle = bloom;
       ctx.fillRect(0, 0, w, h);
 
-      // faint top vignette for nav legibility
       const vg = ctx.createLinearGradient(0, 0, 0, h * 0.3);
-      vg.addColorStop(0, "rgba(0,0,0,0.5)");
-      vg.addColorStop(1, "rgba(0,0,0,0)");
+      vg.addColorStop(0, P.shade[0]);
+      vg.addColorStop(1, P.shade[1]);
       ctx.globalCompositeOperation = "source-over";
       ctx.fillStyle = vg;
       ctx.fillRect(0, 0, w, h * 0.3);
@@ -108,12 +109,20 @@ export default function AtmosphereBackground() {
       if (!reduced) raf = requestAnimationFrame(frame);
     }
 
+    const syncTheme = () => {
+      themeRef.current = document.documentElement.classList.contains("dark") ? "dark" : "light";
+      paint(1200);
+      if (!reduced && !running) { running = true; raf = requestAnimationFrame(frame); }
+    };
+
     resize();
+    themeRef.current = document.documentElement.classList.contains("dark") ? "dark" : "light";
     paint(1200);
     if (!reduced) raf = requestAnimationFrame(frame);
 
     const onResize = () => { resize(); if (reduced) paint(1200); };
     window.addEventListener("resize", onResize);
+    window.addEventListener("theme-change", syncTheme);
 
     const io = new IntersectionObserver(([e]) => {
       const visible = e.isIntersecting && document.visibilityState === "visible";
@@ -133,6 +142,7 @@ export default function AtmosphereBackground() {
       cancelAnimationFrame(raf);
       running = false;
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("theme-change", syncTheme);
       document.removeEventListener("visibilitychange", onVis);
       io.disconnect();
     };

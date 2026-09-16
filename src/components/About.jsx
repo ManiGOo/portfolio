@@ -5,12 +5,12 @@ import SectionHeading from "./SectionHeading";
 const ease = [0.16, 1, 0.3, 1];
 
 const traits = [
-  { icon: Code2, label: "Focus", value: "Python Full Stack" },
+  { icon: Code2, label: "Focus", value: "Python + JS Full Stack" },
   { icon: GraduationCap, label: "Education", value: "BCA Student" },
-  { icon: BookOpen, label: "Mode", value: "Daily Learner" },
+  { icon: BookOpen, label: "Experience", value: "7 Months Hands-On" },
 ];
 
-const stack = ["Python", "Django", "DRF", "React", "JavaScript", "PostgreSQL", "Tailwind CSS", "Git", "REST APIs"];
+const stack = ["Python", "Django", "FastAPI", "DRF", "React", "Node.js", "JavaScript", "PostgreSQL", "Tailwind CSS", "Git", "REST APIs"];
 
 export default function About() {
   return (
@@ -19,7 +19,7 @@ export default function About() {
         index="01"
         eyebrow="Profile — Point of view"
         title="Logic first, interfaces that respect it."
-        lede="BCA undergraduate specializing in Python-driven web development — robust Django backends, seamless React frontends, and codebases a team can actually maintain."
+        lede="BCA undergraduate with 7 months of hands-on experience across Python and JavaScript — robust Django and FastAPI backends, Node.js services, and seamless React frontends."
       />
 
       <div className="grid gap-5 lg:grid-cols-12">
@@ -33,17 +33,17 @@ export default function About() {
         >
           <span className="corner top-left" aria-hidden="true" />
           <span className="corner bottom-right" aria-hidden="true" />
-          <p className="mono-label text-zinc-600">CH.01 — Bio</p>
-          <p className="mt-5 text-lg md:text-xl leading-relaxed text-zinc-300">
-            I am a <span className="font-semibold text-white">BCA undergraduate</span> architecting
-            backends with <span className="text-emerald-300">Django & DRF</span> and pairing them with
-            considered frontend integration. I value clean code architecture — applications that are
+          <p className="mono-label text-zinc-500 dark:text-zinc-600">CH.01 — Bio</p>
+          <p className="mt-5 text-lg md:text-xl leading-relaxed text-zinc-700 dark:text-zinc-300">
+            I am a <span className="font-semibold text-zinc-900 dark:text-white">BCA undergraduate</span> building
+            backends with <span className="text-emerald-700 dark:text-emerald-300">Django, FastAPI and Node.js</span> and
+            pairing them with considered React integration. I value clean code architecture — applications that are
             not just functional, but scalable.
           </p>
-          <p className="mt-4 text-base leading-relaxed text-zinc-500">
-            Actively seeking an internship to apply these skills in a collaborative environment
-            and contribute to real-world software. Strong fundamentals in data structures,
-            PEP 8 discipline, and REST design.
+          <p className="mt-4 text-base leading-relaxed text-zinc-500 dark:text-zinc-500">
+            With 7 months of practical experience shipping full-stack projects, I&apos;m open to junior roles
+            and collaborative work. Strong fundamentals in data structures, REST design, and readable,
+            review-ready code.
           </p>
 
           <div className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -54,11 +54,11 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.08, ease }}
-                className="rounded-2xl border border-white/8 bg-white/[0.02] p-5 transition-colors hover:border-emerald-400/35"
+                className="rounded-2xl border border-zinc-900/10 bg-zinc-900/[0.03] p-5 transition-colors hover:border-emerald-600/40 dark:border-white/8 dark:bg-white/[0.02] dark:hover:border-emerald-400/35"
               >
-                <Icon size={19} className="text-emerald-400" />
-                <p className="mt-3 font-display text-base font-bold text-white">{value}</p>
-                <p className="mono-label mt-1.5 !text-[9px] text-zinc-600">{label}</p>
+                <Icon size={19} className="text-emerald-700 dark:text-emerald-400" />
+                <p className="mt-3 font-display text-base font-bold text-zinc-900 dark:text-white">{value}</p>
+                <p className="mono-label mt-1.5 !text-[9px] text-zinc-500 dark:text-zinc-600">{label}</p>
               </motion.div>
             ))}
           </div>
@@ -70,20 +70,20 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10% 0px" }}
           transition={{ duration: 0.7, delay: 0.12, ease }}
-          className="gradient-border-quiet flex flex-col justify-between rounded-[1.75rem] bg-[#0b0e0d]/90 p-8 lg:col-span-4"
+          className="gradient-border-quiet flex flex-col justify-between rounded-[1.75rem] p-8 lg:col-span-4"
         >
           <div>
             <div className="flex items-center justify-between">
-              <h3 className="font-display text-lg font-bold text-white">Operating stack</h3>
-              <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-400">
-                <i className="size-1.5 animate-pulse rounded-full bg-emerald-400" /> Live
+              <h3 className="font-display text-lg font-bold text-zinc-900 dark:text-white">Operating stack</h3>
+              <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">
+                <i className="size-1.5 animate-pulse rounded-full bg-emerald-600 dark:bg-emerald-400" /> Live
               </span>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
               {stack.map((t) => (
                 <span
                   key={t}
-                  className="cursor-default rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-400 transition-colors hover:border-emerald-400/45 hover:text-white"
+                  className="cursor-default rounded-lg border border-zinc-900/10 bg-zinc-900/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:border-emerald-600/45 hover:text-zinc-900 dark:border-white/10 dark:bg-white/[0.03] dark:text-zinc-400 dark:hover:border-emerald-400/45 dark:hover:text-white"
                 >
                   {t}
                 </span>
@@ -91,12 +91,12 @@ export default function About() {
             </div>
           </div>
           <div className="mt-8 border-t hairline pt-6">
-            <p className="text-sm font-bold text-emerald-300">Internship ready</p>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500">
-              Data structures, Python depth, and web frameworks — committed to readable,
+            <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">Currently</p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-500">
+              7 months of hands-on work across Django, FastAPI and Node.js — committed to readable,
               reviewed, tested code.
             </p>
-            <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-emerald-300">
+            <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-colors hover:text-emerald-700 dark:text-white dark:hover:text-emerald-300">
               Start a conversation <span aria-hidden="true">→</span>
             </a>
           </div>

@@ -31,6 +31,10 @@
       "desc": "Python web framework"
     },
     {
+      "name": "FastAPI",
+      "desc": "High-performance Python API framework"
+    },
+    {
       "name": "Node.js",
       "desc": "JavaScript runtime environment"
     },
