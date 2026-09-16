@@ -1,97 +1,86 @@
-import React from "react";
-import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
-const Contact = () => {
-  const contactLinks = [
-    { 
-      Icon: Mail, 
-      label: "Email", 
-      val: "its.nathmanish@gmail.com", 
-      href: "mailto:its.nathmanish@gmail.com",
-      color: "hover:text-teal-400"
-    },
-    { 
-      Icon: Linkedin, 
-      label: "LinkedIn", 
-      val: "manishforyou", 
-      href: "https://www.linkedin.com",
-      color: "hover:text-blue-400"
-    },
-    { 
-      Icon: Github, 
-      label: "GitHub", 
-      val: "ManiGOo", 
-      href: "https://github.com",
-      color: "hover:text-purple-400"
-    }
-  ];
+const ease = [0.16, 1, 0.3, 1];
 
+const channels = [
+  { Icon: Mail, label: "Email", value: "its.nathmanish@gmail.com", href: "mailto:its.nathmanish@gmail.com" },
+  { Icon: Linkedin, label: "LinkedIn", value: "manishforyou", href: "https://www.linkedin.com" },
+  { Icon: Github, label: "GitHub", value: "ManiGOo", href: "https://github.com/ManiGOo" },
+];
+
+export default function Contact() {
   return (
-    <section id="contact" className="relative py-32 px-6 bg-[#050505] text-white overflow-hidden">
-      {/* Background Ambient Glows */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-teal-500/5 blur-[120px]" />
+    <section id="contact" aria-label="Contact" className="relative scroll-mt-28 overflow-hidden border-t hairline">
+      {/* finale signal band */}
+      <div className="bg-emerald-400 text-black">
+        <div className="content-container flex flex-col gap-8 py-16 md:py-20 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-black/60">
+              04 — Final chapter · Open to work
+            </p>
+            <h2 className="mt-4 font-display display-tight font-bold text-[clamp(2.8rem,7vw,5.5rem)]">
+              Let&apos;s build<br />something real.
+            </h2>
+          </div>
+          <div className="max-w-sm">
+            <p className="text-[15px] font-medium leading-relaxed text-black/70">
+              Internships, freelance builds, or a hard problem worth solving —
+              my inbox is the fastest route. I reply within a day.
+            </p>
+            <a
+              href="mailto:its.nathmanish@gmail.com"
+              className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              its.nathmanish@gmail.com <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
-            GET IN TOUCH.
-          </h2>
-          <p className="text-xl text-gray-400 mb-16 max-w-2xl mx-auto leading-relaxed">
-            I’m always looking for new opportunities and interesting projects. 
-            Feel free to reach out through any of these platforms.
-          </p>
-        </motion.div>
+      {/* channels + footer */}
+      <div className="bg-[#060807]">
+        <div className="content-container py-14">
+          <div className="grid gap-4 md:grid-cols-3">
+            {channels.map(({ Icon, label, value, href }, i) => (
+              <motion.a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.08, ease }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition-all duration-200 hover:-translate-y-1 hover:border-emerald-400/40"
+              >
+                <ArrowUpRight size={18} className="absolute right-5 top-5 text-zinc-700 transition-all duration-200 group-hover:rotate-45 group-hover:text-emerald-300" />
+                <Icon size={30} strokeWidth={1.6} className="text-zinc-300 transition-colors group-hover:text-emerald-300" />
+                <p className="mono-label mt-6 !text-[10px] text-zinc-600">{label}</p>
+                <p className="mt-1.5 truncate text-[15px] font-semibold text-zinc-100">{value}</p>
+              </motion.a>
+            ))}
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {contactLinks.map((item, i) => (
-            <motion.a
-              key={i}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="relative group p-8 rounded-[2rem] bg-white/5 border border-white/10 overflow-hidden transition-all hover:border-white/20"
-            >
-              <div className="absolute top-4 right-4 text-white/20 group-hover:text-white group-hover:rotate-45 transition-all">
-                <ArrowUpRight size={20} />
-              </div>
-              
-              <div className={`mb-6 flex justify-center transition-colors ${item.color}`}>
-                <item.Icon size={40} strokeWidth={1.5} />
-              </div>
-              
-              <p className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">
-                {item.label}
-              </p>
-              <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                {item.val}
-              </p>
-            </motion.a>
-          ))}
+          <footer className="mt-14 flex flex-col gap-5 border-t hairline pt-8 md:flex-row md:items-center md:justify-between">
+            <a href="#top" className="flex items-center gap-3">
+              <span className="grid size-8 place-items-center rounded-lg bg-emerald-400 font-display text-sm font-bold text-black">M</span>
+              <span className="font-display text-sm font-bold text-white">Manish<span className="text-emerald-400">.dev</span></span>
+            </a>
+            <nav aria-label="Footer">
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500">
+                <li><a href="#about" className="transition-colors hover:text-white">About</a></li>
+                <li><a href="#work" className="transition-colors hover:text-white">Work</a></li>
+                <li><a href="#stack" className="transition-colors hover:text-white">Stack</a></li>
+                <li><a href="#contact" className="transition-colors hover:text-white">Contact</a></li>
+              </ul>
+            </nav>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-600">
+              Designed & built by Manish · 2026
+            </p>
+          </footer>
         </div>
-
-        {/* Footer Note */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 text-gray-600 text-sm font-medium tracking-widest uppercase"
-        >
-          Designed & Built by Manish • 2026
-        </motion.p>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

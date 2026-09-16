@@ -1,87 +1,97 @@
-import React, { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Layout, Server, Wrench, Zap } from "lucide-react";
+import { Layout, Server, Wrench } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
-const Skills = () => {
-  const [skills, setSkills] = useState({ frontend: [], backend: [], tools: [] });
+const ease = [0.16, 1, 0.3, 1];
+
+const icons = { Frontend: Layout, Backend: Server, Tools: Wrench };
+
+export default function Skills() {
+  const [groups, setGroups] = useState({ Frontend: [], Backend: [], Tools: [] });
 
   useEffect(() => {
+    let live = true;
     fetch("/data/skills.json")
-      .then((res) => res.json())
-      .then((data) => setSkills(data))
-      .catch((err) => console.error("Error loading skills:", err));
+      .then((r) => r.json())
+      .then((d) => {
+        if (!live) return;
+        setGroups({
+          Frontend: d.frontend ?? [],
+          Backend: d.backend ?? [],
+          Tools: d.tools ?? [],
+        });
+      })
+      .catch(() => {});
+    return () => { live = false; };
   }, []);
 
-  const skillData = useMemo(() => skills, [skills]);
-
-  const renderSection = (title, items, icon, delayOffset) => (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: delayOffset, ease: "easeOut" }}
-      className="group relative flex flex-col bg-[#121212] border border-white/5 p-8 rounded-[2.5rem] overflow-hidden"
-    >
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      <div className="relative z-10">
-        <div className="flex items-center gap-4 mb-8">
-          <div className="p-3 rounded-2xl bg-teal-400/10 text-teal-400 group-hover:scale-110 transition-transform">
-            {icon}
-          </div>
-          <h3 className="text-2xl font-black tracking-tight">{title}</h3>
-        </div>
-
-        <div className="space-y-6">
-          {items.map((skill, idx) => (
-            <motion.div 
-              key={skill.name}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: delayOffset + (idx * 0.1) }}
-              className="relative"
-            >
-              <div className="flex justify-between items-end mb-2">
-                <span className="text-lg font-bold text-gray-200">{skill.name}</span>
-                <span className="text-[10px] font-black uppercase tracking-widest text-teal-500/50">Expertise</span>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-400 transition-colors">
-                {skill.desc}
-              </p>
-              {idx !== items.length - 1 && (
-                <div className="mt-6 h-[1px] w-full bg-gradient-to-r from-white/5 to-transparent" />
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-
   return (
-    <section id="skills" className="relative py-32 px-6 bg-[#050505] text-white">
-      {/* Heading Group */}
-      <div className="max-w-6xl mx-auto mb-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-tighter text-gray-400 mb-4"
-        >
-          <Zap size={14} className="text-teal-400" /> STACK & TOOLS
-        </motion.div>
-        <h2 className="text-5xl md:text-6xl font-black tracking-tighter">
-          Technical <span className="text-gray-500">Arsenal.</span>
-        </h2>
-      </div>
+    <section id="stack" aria-label="Technical stack" className="content-container scroll-mt-28 py-24 md:py-32">
+      <SectionHeading
+        index="03"
+        eyebrow="Stack & tooling — The arsenal"
+        title="Depth where it counts, breadth where it helps."
+        lede="Python and Django carry the backend. React carries the interface. Everything else exists to ship, test and deploy with confidence."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
-        {renderSection("Frontend", skillData.frontend, <Layout size={24} />, 0.1)}
-        {renderSection("Backend", skillData.backend, <Server size={24} />, 0.2)}
-        {renderSection("Tools", skillData.tools, <Wrench size={24} />, 0.3)}
+      <div className="grid gap-5 md:grid-cols-3">
+        {Object.entries(groups).map(([title, items], gi) => {
+          const Icon = icons[title] ?? Wrench;
+          return (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.65, delay: gi * 0.1, ease }}
+              className="gradient-border-quiet group relative flex flex-col overflow-hidden rounded-[1.75rem] bg-[#0b0e0d]/90 p-7 md:p-8"
+            >
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/[0.06] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-11 place-items-center rounded-2xl border border-emerald-400/25 bg-emerald-400/10 text-emerald-300 transition-transform duration-300 group-hover:scale-105">
+                      <Icon size={20} />
+                    </span>
+                    <div>
+                      <h3 className="font-display text-xl font-bold text-white">{title}</h3>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                        0{gi + 1} · {items.length} items
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="mt-7 space-y-5">
+                  {items.map((s, si) => (
+                    <motion.li
+                      key={s.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.08 + si * 0.05, ease }}
+                    >
+                      <div className="flex items-baseline justify-between gap-3">
+                        <p className="font-semibold text-zinc-100">{s.name}</p>
+                        <span className="hidden h-px flex-1 bg-white/8 sm:block" aria-hidden="true" />
+                      </div>
+                      <p className="mt-1 text-sm leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-400">
+                        {s.desc}
+                      </p>
+                      {si !== items.length - 1 && <div className="mt-5 h-px bg-gradient-to-r from-white/8 to-transparent" aria-hidden="true" />}
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <div className="mt-7 border-t hairline pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                  {title === "Backend" ? "◆ Primary depth" : "◇ Supporting range"}
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
