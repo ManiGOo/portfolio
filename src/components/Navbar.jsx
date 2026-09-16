@@ -45,15 +45,12 @@ export default function Navbar() {
           </div>
 
           <a href="#top" className="flex items-center gap-3 group" aria-label="Manish — back to top">
-            <span className="grid size-8 place-items-center rounded-lg bg-emerald-600 font-display text-sm font-bold text-white shadow-[0_0_24px_rgba(5,150,105,0.35)] dark:bg-emerald-400 dark:text-black dark:shadow-[0_0_24px_rgba(16,185,129,0.35)]">
-              M
-            </span>
-            <span className="leading-none">
-              <span className="block font-display text-[15px] font-bold tracking-tight text-zinc-900 dark:text-white">
-                Manish<span className="text-emerald-600 dark:text-emerald-400">.dev</span>
-              </span>
-              <span className="mono-label mt-1 block !text-[9px] text-zinc-500 dark:text-zinc-500">BCA — PY FULL STACK</span>
-            </span>
+          <a href="#top" className="flex items-center shrink-0" aria-label="Many Software Developer — back to top">
+            <img
+              src="/logo.png"
+              alt="Many Software Developer logo"
+              className="h-10 w-10 rounded-xl object-cover ring-1 ring-zinc-900/10 dark:ring-white/10"
+            />
           </a>
 
           <nav aria-label="Primary" className="hidden md:block">
